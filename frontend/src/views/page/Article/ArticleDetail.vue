@@ -42,7 +42,7 @@
     </div>
     <section class="blog-post-bottom-section">
       <div>
-        <div class="articles-info col-xs-12 col-lg-10">
+        <div class="articles-info col-xs-12 col-lg-12">
           <div class="articles-author d-flex">
             <img class="articles-author-img" src="@/assets/img/koray.png" alt="Profile picture" />
             <div class="articles-author-content">

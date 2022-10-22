@@ -64,11 +64,6 @@ export default {
     onMounted(() => store.dispatch("initPosts"));
 
 
-    const ct = computed(() => store.getters.getCategory);
-    onMounted(() => store.dispatch("initCategory", route.params.slug));
-
-    console.log(ct)
-
     watch(() => {
       categoryId.value = route.params.id;
     });

@@ -18,11 +18,11 @@
       <div class="articles-footer d-flex justify-content-between align-items-start align-items-md-center flex-column flex-md-row-reverse">
         <ul class="articles-footer-info d-flex align-items-center">
           <li>
-            <i class="fa-solid fa-calendar-days"></i>
+            <i class="fa-solid fa-calendar-days me-2"></i>
             <time datetime="2022-10-11" class="gray">{{ dateTime(post.updatedAt) }}</time>
           </li>
           <li>
-            <router-link :to="{ name: 'articleDetail', params: { id: post._id, slug: post.slug } }" class="btn">Devamını Oku</router-link>
+            <router-link :to="{ name: 'articleDetail', params: { id: post._id, slug: post.slug } }" class="detailButton">Devamını Oku</router-link>
           </li>
         </ul>
       </div>
@@ -58,3 +58,6 @@ export default {
   },
 };
 </script>
+<style scoped>
+
+</style>

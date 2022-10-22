@@ -29,23 +29,33 @@ const routes = [
       {
         path: "/articleDetail/:slug",
         name: "articleDetail",
-        props:true,
+        props: true,
         component: () => import("@/views/page/Article/ArticleDetail.vue"),
       },
       {
         path: "/categoryList/:id",
         name: "categoryList",
-        props:true,
+        props: true,
         component: () => import("@/views/page/CategoryList.vue"),
       },
     ],
-    
+  },
+  {
+    path: "/",
+    component: () => import("@/views/layouts/Dashboard.vue"),
+    children: [
+      {
+        path: "/postAdd",
+        name: "postAdd",
+        component: () => import("@/views/Dashboard/PostAdd.vue"),
+      },
+    ],
   },
   {
     path: "/login",
     name: "login",
     component: () => import("@/views/Auth/Login.vue"),
-  }
+  },
 ];
 
 const router = createRouter({
