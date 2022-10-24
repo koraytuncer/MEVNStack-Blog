@@ -9,11 +9,12 @@
         </div>
         <!-- <div class="header-top-text d-none d-lg-block">
                     <p class="font-secondary">
-                        <span class="fst-italic">“Modern Javascript”</span>
+                        <span class="fst-italic">Reklam Alanı</span>
                     </p>
-                </div>
+                </div> -->
         <div class="d-flex align-items-center d-lg-block position-relative">
-          <div class="header-top-search">
+          <!--Arama Alanı Olarak Kullanılacak-->
+          <!-- <div class="header-top-search">
             <div class="header-top-search-btn">
               <i class="fa-solid fa-magnifying-glass"></i>
             </div>
@@ -21,17 +22,17 @@
               <input type="text" class="form-control" placeholder="Ara" />
               <button class="btn" type="submit"><i class="pe-7s-search"></i></button>
             </form>
-          </div>
-          <a href="#" class="light-link d-block d-lg-none" title="Menu">
+          </div> -->
+          <a @click="menuToggle" href="#" class="light-link d-block d-lg-none" title="Menu">
             <div id="menu-animate-icon" class="header-top-nav-menu-icon">
               <span></span>
               <span></span>
               <span></span>
             </div>
           </a>
-        </div> -->
+        </div>
       </div>
-      <nav class="header-nav d-none d-lg-block">
+      <nav :class="mobileMenu ? 'mobile-nav header-nav mobile-nav-open d-lg-none openMenu' : 'header-nav d-none d-lg-block'">
         <ul class="d-block d-lg-flex">
           <li :class="{ active: selected === 0 }" @click="changeSelected(0)">
             <router-link to="/" title="Home">Ana Sayfa</router-link>
@@ -78,16 +79,35 @@ export default {
   setup() {
     const store = useStore();
     const categories = computed(() => store.getters.getCategories);
+    const mobileMenu = ref(false);
+
+    const menuToggle = () => {
+      mobileMenu.value = !mobileMenu.value;
+    };
 
     onMounted(() => store.dispatch("initCategories"));
-
 
     const selected = ref(0);
     const changeSelected = (i) => {
       selected.value = i;
     };
 
-    return { categories, selected, changeSelected };
+    return { 
+      categories, 
+      selected, 
+      changeSelected, 
+      mobileMenu, 
+      menuToggle };
   },
 };
 </script>
+<style scoped>
+.openMenu{
+  width: 100% !important;
+  position: inherit;
+  padding-top: 0;
+}
+.openMenu ul li a{
+  padding-left: 10px !important;
+}
+</style>

@@ -45,9 +45,9 @@ const routes = [
     component: () => import("@/views/layouts/Dashboard.vue"),
     children: [
       {
-        path: "/postAdd",
-        name: "postAdd",
-        component: () => import("@/views/Dashboard/PostAdd.vue"),
+        path: "/dashboard",
+        name: "dashboard",
+        component: () => import("@/views/Dashboard/index.vue"),
       },
     ],
   },
