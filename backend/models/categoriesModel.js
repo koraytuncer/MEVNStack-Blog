@@ -18,7 +18,12 @@ const categoriesSchema = new Schema({
     type: Schema.Types.String,
     required: true,
   },
-});
+},
+{
+  timestamps: true,
+}
+
+);
 
 categoriesSchema.pre("validate", function (next) {
   this.slug = slugify(this.title, {
