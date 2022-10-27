@@ -14,18 +14,8 @@
           <li class="nav-item">
             <router-link class="nav-link" to="/dashboard">
               <span class="nav-link-icon d-md-none d-lg-inline-block">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="icon"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  stroke-width="2"
-                  stroke="currentColor"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24"
+                  stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                   <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                   <polyline points="5 12 3 12 12 3 21 12 19 12" />
                   <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
@@ -38,18 +28,8 @@
           <li class="nav-item">
             <router-link class="nav-link" to="/postList">
               <span class="nav-link-icon d-md-none d-lg-inline-block">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="icon"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  stroke-width="2"
-                  stroke="currentColor"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24"
+                  stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                   <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                   <polyline points="9 11 12 14 20 6" />
                   <path d="M20 12v6a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h9" />
@@ -61,18 +41,8 @@
           <li class="nav-item">
             <router-link router-link class="nav-link" to="/categoryLists">
               <span class="nav-link-icon d-md-none d-lg-inline-block">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="icon"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  stroke-width="2"
-                  stroke="currentColor"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24"
+                  stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                   <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                   <polyline points="12 3 20 7.5 20 16.5 12 21 4 16.5 4 7.5 12 3" />
                   <line x1="12" y1="12" x2="20" y2="7.5" />
@@ -87,18 +57,8 @@
           <li class="nav-item">
             <a class="nav-link" href="./index.html">
               <span class="nav-link-icon d-md-none d-lg-inline-block">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="icon"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  stroke-width="2"
-                  stroke="currentColor"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24"
+                  stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                   <circle cx="12" cy="12" r="4"></circle>
                   <circle cx="12" cy="12" r="9"></circle>
@@ -118,7 +78,18 @@
 </template>
 
 <script>
-export default {};
+export default {
+  name: "Dashboard-Aside",
+  setup() {
+
+    return {
+
+    }
+  }
+
+};
 </script>
 
-<style></style>
+<style>
+
+</style>

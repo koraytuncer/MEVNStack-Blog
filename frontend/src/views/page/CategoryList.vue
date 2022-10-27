@@ -68,7 +68,6 @@ export default {
       categoryId.value = route.params.id;
     });
 
-    console.log(route);
 
     const dateTime = (value) => {
       return moment(value).format("DD/MM/YYYY");

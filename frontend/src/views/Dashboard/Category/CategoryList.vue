@@ -124,11 +124,7 @@ export default {
   setup() {
     const store = useStore();
     const categories = computed(() => store.getters.getCategories);
-    const mobileMenu = ref(false);
 
-    const menuToggle = () => {
-      mobileMenu.value = !mobileMenu.value;
-    };
 
     const dateTime = (value) => {
       return moment(value).format("DD.MM.YYYY");
