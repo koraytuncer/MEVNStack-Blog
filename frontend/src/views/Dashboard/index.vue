@@ -7,8 +7,7 @@
           <div class="row g-2 align-items-center">
             <div class="col">
               <!-- Page pre-title -->
-              <div class="page-pretitle">Overview</div>
-              <h2 class="page-title">Vertical layout</h2>
+              <h2 class="page-title">k91 - MevnStack Blog</h2>
             </div>
             <!-- Page title actions -->
             <div class="col-12 col-md-auto ms-auto d-print-none">
@@ -602,7 +601,7 @@
 
 <script>
 export default {
-  name: "Post-Add",
+  name: "Dashboard-Home",
 };
 </script>
 

@@ -49,6 +49,16 @@ const routes = [
         name: "dashboard",
         component: () => import("@/views/Dashboard/index.vue"),
       },
+      {
+        path: "/postList",
+        name: "postList",
+        component: () => import("@/views/Dashboard/Posts/PostList.vue"),
+      },
+      {
+        path: "/newPost",
+        name: "newPost",
+        component: () => import("@/views/Dashboard/Posts/PostAdd.vue"),
+      },
     ],
   },
   {
