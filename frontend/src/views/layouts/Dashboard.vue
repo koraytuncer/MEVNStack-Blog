@@ -16,5 +16,4 @@ export default {
 
 <style>
 @import "@/assets/dashboard/dist/css/tabler.min.css?1666304673";
-@import "@/assets/dashboard/dist/css/demo.min.css?1666304673";
 </style>

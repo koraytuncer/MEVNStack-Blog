@@ -49,7 +49,6 @@ export default {
     onMounted(() => isActive.value = props.buttonShow);
 
     
-    console.log(isActive)
     
 
     return {
