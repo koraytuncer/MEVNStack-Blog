@@ -59,6 +59,16 @@ const routes = [
         name: "newPost",
         component: () => import("@/views/Dashboard/Posts/PostAdd.vue"),
       },
+      {
+        path: "/categoryLists",
+        name: "categoryLists",
+        component: () => import("@/views/Dashboard/Category/CategoryList.vue"),
+      },
+      {
+        path: "/newCategory",
+        name: "newCategory",
+        component: () => import("@/views/Dashboard/Category/CategoryAdd.vue"),
+      },
     ],
   },
   {

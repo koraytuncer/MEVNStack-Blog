@@ -59,7 +59,7 @@
             </router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./index.html">
+            <router-link router-link class="nav-link" to="/categoryLists">
               <span class="nav-link-icon d-md-none d-lg-inline-block">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -82,7 +82,7 @@
                 </svg>
               </span>
               <span class="nav-link-title"> Kategoriler </span>
-            </a>
+            </router-link>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="./index.html">

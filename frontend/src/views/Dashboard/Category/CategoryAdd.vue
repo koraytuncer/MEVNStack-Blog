@@ -1,6 +1,6 @@
 <template>
     <div class="page-wrapper">
-      <Header title="Yeni Blog Yazısı" button="Kategori Oluştur" toLink="newCategory" buttonShow="false" />
+      <Header title="Yeni Kategori" button="Yazı Oluştur" toLink="newPost" buttonShow="false" />
       <div class="page-body">
         <div class="container-xl">
           <div class="row row-deck row-cards">
@@ -10,27 +10,15 @@
                 <form method="post">
                 <div class="mb-3">
                   <label class="form-label">Başlık</label>
-                  <input type="text" class="form-control" placeholder="Yazı Başlığı">
+                  <input type="text" class="form-control" placeholder="Kategori Adı">
                 </div>
                 <div class="mb-3">
-                  <label class="form-label">Kategori</label>
-                  <select type="text" class="form-select" placeholder="Select a date" id="select-tags" value="">
-                              <option value="HTML">HTML</option>
-                              <option value="JavaScript">JavaScript</option>
-                              <option value="CSS">CSS</option>
-                              <option value="jQuery">jQuery</option>
-                              <option value="Bootstrap">Bootstrap</option>
-                              <option value="Ruby">Ruby</option>
-                              <option value="Python">Python</option>
-                            </select>
+                  <label class="form-label">Kategori Renk</label>
+                  <div class="mb-3">
+                            <input type="color" class="form-control form-control-color" value="#206bc4" title="Choose your color">
+                          </div>
                 </div>
                 <div class="mb-3">
-                  <label class="form-label">Yazar</label>
-                  <input type="text" class="form-control" placeholder="Koray Tuncer" readonly>
-                </div>
-                <div class="mb-3">
-                  <label class="form-label">Yazı Alanı</label>
-                    <QuillEditor theme="snow" />
                     <div class="col-6 col-sm-4 col-md-2 col-xl py-3 float-end">
                         <a href="#" class="btn btn-success w-100">
                           Gönder

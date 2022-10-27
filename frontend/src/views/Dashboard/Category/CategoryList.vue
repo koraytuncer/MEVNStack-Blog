@@ -1,11 +1,11 @@
 <template>
     <div class="page-wrapper">
-      <Header title="Yazı Listesi" button="Yazı Oluştur" toLink="newPost" buttonShow="false" />
+      <Header title="Kategori Listesi" button="Kategori Oluştur" toLink="newCategory" buttonShow="false" />
       <div class="page-body">
         <div class="container-xl">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Yazılar</h3>
+              <h3 class="card-title">Kategoriler</h3>
             </div>
             <div class="table-responsive">
               <table class="table card-table table-vcenter text-nowrap datatable">
@@ -13,8 +13,8 @@
                   <tr>
                     <th class="w-1">No</th>
                     <th>Başlık</th>
+                    <th>Renk</th>
                     <th>Yazar</th>
-                    <th>Kategori</th>
                     <th>Oluşturma Tarihi</th>
                     <th>İşlemler</th>
                   </tr>
@@ -22,9 +22,11 @@
                 <tbody>
                   <tr>
                     <td><span class="text-muted">1</span></td>
-                    <td>Java Script Öğreniyorum</td>
+                    <td>VueJS</td>
+                    <td>
+                      <span class="badge bg-success me-1"> </span>
+                    </td>
                     <td>Koray TUNCER</td>
-                    <td><span class="badge bg-success me-1"> </span> JavaScript</td>
                     <td>15 Dec 2017</td>
                     <td>
                       <div class="d-flex">
