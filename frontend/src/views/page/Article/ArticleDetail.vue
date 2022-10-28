@@ -15,8 +15,8 @@
                 <a href="#" title="Keeping Your Business And Clients Safe With Digital Policies"> {{post.title}} </a>
               </h1>
               
-              <p class="articles-blog-post-text font-secondary">
-                {{post.description}}
+              <p class="articles-blog-post-text font-secondary" v-html="post.description">
+                
               </p>
 
             </div>

@@ -28,18 +28,9 @@
                   <td>{{ post.author }}</td>
                   <td>
                     <span :style="{ color: '#' + post.category.color }">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="icon icon-tabler icon-tabler-point"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        stroke-width="2"
-                        stroke="currentColor"
-                        fill="none"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      >
+                      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-point" width="24"
+                        height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                         <circle cx="12" cy="12" r="4"></circle>
                       </svg>
@@ -49,19 +40,14 @@
                   <td>{{ dateTime(post.updatedAt) }}</td>
                   <td>
                     <div class="d-flex">
-                      <router-link class="me-2" to="/edit">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="icon icon-tabler icon-tabler-edit"
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          stroke-width="2"
-                          stroke="currentColor"
-                          fill="none"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        >
+                      <router-link 
+                      class="me-2" 
+                      :to="`/postEdit/${post.slug}`"  
+                      :key="post.slug"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit" width="24"
+                          height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                          stroke-linecap="round" stroke-linejoin="round">
                           <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                           <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1"></path>
                           <path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z"></path>
@@ -69,18 +55,9 @@
                         </svg>
                       </router-link>
                       <router-link to="/delete">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="icon icon-tabler icon-tabler-trash"
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          stroke-width="2"
-                          stroke="currentColor"
-                          fill="none"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        >
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="24"
+                          height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                          stroke-linecap="round" stroke-linejoin="round">
                           <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                           <line x1="4" y1="7" x2="20" y2="7"></line>
                           <line x1="10" y1="11" x2="10" y2="17"></line>
@@ -103,18 +80,8 @@
               <li class="page-item disabled">
                 <a class="page-link" href="#" tabindex="-1" aria-disabled="true">
                   <!-- Download SVG icon from http://tabler-icons.io/i/chevron-left -->
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="icon"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24"
+                    stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                     <polyline points="15 6 9 12 15 18" />
                   </svg>
@@ -130,18 +97,8 @@
                 <a class="page-link" href="#">
                   next
                   <!-- Download SVG icon from http://tabler-icons.io/i/chevron-right -->
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="icon"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24"
+                    stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                     <polyline points="9 6 15 12 9 18" />
                   </svg>
@@ -160,6 +117,7 @@ import Header from "@/views/Dashboard/Header";
 import Footer from "@/views/Dashboard/Footer";
 import { onMounted, computed } from "vue";
 import { useStore } from "vuex";
+import { useRouter } from "vue-router";
 import moment from "moment";
 
 export default {
@@ -169,13 +127,17 @@ export default {
   },
   setup() {
     const store = useStore();
+    const router = useRouter();
+    
     const posts = computed(() => store.getters.getPosts);
     onMounted(() => store.dispatch("initPosts"));
+
+
+
 
     const dateTime = (value) => {
       return moment(value).format("DD/MM/YYYY");
     };
-
 
     return { posts, dateTime };
   },

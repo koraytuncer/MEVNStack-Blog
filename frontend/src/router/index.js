@@ -52,11 +52,19 @@ const routes = [
       {
         path: "/postList",
         name: "postList",
+        props: true,
         component: () => import("@/views/Dashboard/Posts/PostList.vue"),
       },
       {
         path: "/newPost",
         name: "newPost",
+        props: true,
+        component: () => import("@/views/Dashboard/Posts/PostAdd.vue"),
+      },
+      {
+        path: "/postEdit/:slug",
+        name: "postEdit",
+        props: true,
         component: () => import("@/views/Dashboard/Posts/PostAdd.vue"),
       },
       {

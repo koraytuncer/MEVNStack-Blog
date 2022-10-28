@@ -1,38 +1,65 @@
 <template>
   <div class="page-wrapper">
-    <Header title="Yeni Blog Yazısı" button="Kategori Oluştur" toLink="newCategory" buttonShow="false" />
+    <Header
+      title="Yeni Blog Yazısı"
+      button="Kategori Oluştur"
+      toLink="newCategory"
+      buttonShow="false"
+    />
     <div class="page-body">
       <div class="container-xl">
         <div class="row row-deck row-cards">
           <div class="col-12">
             <div class="card">
               <div class="card-body">
-                <form method="post" @submit.prevent="handleSubmit">
+                <form method="post" @submit.prevent="onSubmit">
                   <div class="mb-3">
                     <label class="form-label">Başlık</label>
-                    <input name="title" v-model="form.title" type="text" class="form-control"
-                      placeholder="Yazı Başlığı">
+                    <input
+                      v-model="form.title"
+                      type="text"
+                      class="form-control"
+                      placeholder="Yazı Başlığı"
+                    />
                   </div>
 
                   <div class="mb-3">
                     <label class="form-label">Kategori</label>
-                    <select v-model="form.category" name="category" class="form-select">
-                      <option value="Lütfen Seçiniz" selected>Lütfen Seçiniz</option>
-                      <option v-for="(item, index) in categories" :key="index">{{ item.title }}</option>
+                    <select
+                      v-model="form.category"
+                      name="category"
+                      class="form-select"
+                    >
+                      <option value="Lütfen Seçiniz" selected>
+                        Lütfen Seçiniz
+                      </option>
+                      <option v-for="(item, index) in categories" :key="index">
+                        {{ item._id }}
+                      </option>
                     </select>
                   </div>
                   <div class="mb-3">
                     <label class="form-label">Yazar</label>
-                    <input type="text" name="author" v-model="form.author" class="form-control" placeholder="Yazar Adı">
+                    <input
+                      type="text"
+                      name="author"
+                      v-model="form.author"
+                      class="form-control"
+                      placeholder="Yazar Adı"
+                    />
                   </div>
                   <div class="mb-3">
                     <label class="form-label">Yazı Alanı</label>
-                    <QuillEditor v-model:content="form.post" contentType="html" theme="snow"></QuillEditor>
+                    <QuillEditor
+                      v-model:content="form.description"
+                      contentType="html"
+                      theme="snow"
+                    ></QuillEditor>
 
                     <div class="col-6 col-sm-4 col-md-2 col-xl py-3 float-end">
-                      <a href="#" class="btn btn-success w-100" @click="handleSubmit">
+                      <button type="submit" class="btn btn-success w-100">
                         Gönder
-                      </a>
+                      </button>
                     </div>
                   </div>
                 </form>
@@ -48,40 +75,49 @@
 <script>
 import Header from "@/views/Dashboard/Header";
 import Footer from "@/views/Dashboard/Footer";
-import { QuillEditor } from '@vueup/vue-quill'
-import '@vueup/vue-quill/dist/vue-quill.snow.css';
+import { QuillEditor } from "@vueup/vue-quill";
+import "@vueup/vue-quill/dist/vue-quill.snow.css";
 import { computed, onMounted } from "vue";
 import { useStore } from "vuex";
+import { useRouter } from "vue-router";
 export default {
   components: {
     Header,
     Footer,
-    QuillEditor
+    QuillEditor,
   },
   setup() {
     const store = useStore();
+    const router = useRouter();
+
     const categories = computed(() => store.getters.getCategories);
     onMounted(() => store.dispatch("initCategories"));
+    const post = computed(() => store.getters.getPost);
+    onMounted(() =>
+      store.dispatch("initPost", router.currentRoute.value.params.slug)
+    );
 
-    const form = {
+    let form = {
       title: "",
       category: "",
-      post: "",
+      description: "",
       author: "",
-    }
+    };
 
-    console.log(form)
+    // if (router.currentRoute.value.params.slug) {
+    //   return (post.value.title = form.title);
+    // }
 
-    const handleSubmit = () => {
-      console.log("Gönderildi")
-    }
+    const onSubmit = async () => {
+      await store.dispatch("addPost", form);
+    };
 
     return {
       categories,
       form,
-      handleSubmit
-    }
-  }
+      onSubmit,
+    };
+  },
 };
 </script>
 

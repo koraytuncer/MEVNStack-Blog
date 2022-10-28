@@ -20,9 +20,7 @@
                   </div>
                 </div>
                 <div class="articles-content">
-                  <p class="font-secondary articles-content-text">
-                    {{ post.description }}
-                  </p>
+                  <p class="font-secondary articles-content-text" v-html="post.description"></p>
                 </div>
                 <div class="articles-footer d-flex justify-content-between align-items-start align-items-md-center flex-column flex-md-row-reverse">
                   <ul class="articles-footer-info d-flex align-items-center">

@@ -4,9 +4,9 @@ import axios from "axios";
 export default createStore({
   state: {
     posts: [],
-    post:[],
-    categories:[],
-    category:[]
+    post: [],
+    categories: [],
+    category: [],
   },
   getters: {
     getPosts(state) {
@@ -35,42 +35,37 @@ export default createStore({
     SET_CATEGORY(state, category) {
       state.category = category;
     },
-    addPost(state, post) {
-      
+    ADD_POST(state, post) {
+      state.posts = post;
     },
     updatePost(state, post) {},
     deletePost(state, post) {},
   },
   actions: {
     initPosts(context) {
-      axios.get(process.env.VUE_APP_API_URL + process.env.VUE_APP_PREFIX +"getAllPosts")
-      .then(res =>{
-        context.commit("SET_POSTS",res.data.post)
-       
-      })
+      axios.get(process.env.VUE_APP_API_URL + process.env.VUE_APP_PREFIX + "getAllPosts").then((res) => {
+        context.commit("SET_POSTS", res.data.post);
+      });
     },
-    initPost(context,postSlug) {
-      axios.get(process.env.VUE_APP_API_URL + process.env.VUE_APP_PREFIX + postSlug)
-      .then(res =>{
-        context.commit("SET_POST",res.data.post)
-       
-      })
+    initPost(context, postSlug) {
+      axios.get(process.env.VUE_APP_API_URL + process.env.VUE_APP_PREFIX + postSlug).then((res) => {
+        context.commit("SET_POST", res.data.post);
+      });
     },
     initCategories(context) {
-      axios.get(process.env.VUE_APP_API_URL + process.env.VUE_APP_PREFIX +"getAllCategories")
-      .then(res =>{
-        context.commit("SET_CATEGORIES",res.data.category)
-       
-      })
+      axios.get(process.env.VUE_APP_API_URL + process.env.VUE_APP_PREFIX + "getAllCategories").then((res) => {
+        context.commit("SET_CATEGORIES", res.data.category);
+      });
     },
-    initCategory(context,categoryId) {
-      axios.get(process.env.VUE_APP_API_URL + process.env.VUE_APP_PREFIX + categoryId)
-      .then(res =>{
-        context.commit("SET_CATEGORY",res.data.category)
-      })
-      
+    initCategory(context, categoryId) {
+      axios.get(process.env.VUE_APP_API_URL + process.env.VUE_APP_PREFIX + categoryId).then((res) => {
+        context.commit("SET_CATEGORY", res.data.category);
+      });
     },
-    addPost(context, post) {},
+    addPost(context, post) {
+      axios.post(process.env.VUE_APP_API_URL + process.env.VUE_APP_PREFIX + "newPost", post);
+      context.commit("ADD_POST", post);
+    },
     updatePost(context, post) {},
     deletePost(context, postID) {},
   },
