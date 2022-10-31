@@ -25,7 +25,7 @@
 
                   <div class="mb-3">
                     <label class="form-label">Kategori</label>
-                    <select v-model="form.category._id" name="category" class="form-select">
+                    <select v-model="form.category" name="category" class="form-select">
                       <option value="Lütfen Seçiniz" selected>Lütfen Seçiniz</option>
                       <option v-for="(item, index) in categories" :key="index">
                         {{ item._id }}
@@ -69,7 +69,7 @@ import Header from "@/views/Dashboard/Header";
 import Footer from "@/views/Dashboard/Footer";
 import { QuillEditor } from "@vueup/vue-quill";
 import "@vueup/vue-quill/dist/vue-quill.snow.css";
-import { computed, onMounted, reactive,ref } from "vue";
+import { computed, onMounted, reactive,watchEffect } from "vue";
 import { useStore } from "vuex";
 import { useRoute } from "vue-router";
 export default {
@@ -82,22 +82,28 @@ export default {
   setup(props) {
     const store = useStore();
     const route = useRoute();
- 
+
     const categories = computed(() => store.getters.getCategories);
     onMounted(() => store.dispatch("initCategories"));
 
     const post = computed(() => store.getters.getPost);
-    onMounted(() => {store.dispatch("initPost", props.slug)});
+    onMounted(() => {
+  if(store.state.post.length === 0){
+        store.dispatch("initPost", props.slug)
+        
+      }
+    });
 
-    const form = reactive({
-      title: "",
-      description: "",
-      author: "",
-      category:0
+    
+
+    let form = reactive({
+      title: post.value.title,
+      description: post.value.description,
+      author: post.value.author,
+      category:post.value.category
     });
 
 
-console.log(post)
     return {
       categories,
       form,      

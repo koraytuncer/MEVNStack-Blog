@@ -36,10 +36,13 @@ export default createStore({
       state.category = category;
     },
     ADD_POST(state, post) {
-      state.posts = post;
+      state.posts.push(post);
     },
     updatePost(state, post) {},
-    deletePost(state, post) {},
+    DELETE_POST(state, postID) {
+      let index = state.posts.findIndex((c) => c._id == postID);
+      state.posts.splice(index, 1);
+    },
   },
   actions: {
     initPosts(context) {
@@ -63,11 +66,17 @@ export default createStore({
       });
     },
     addPost(context, post) {
-      axios.post(process.env.VUE_APP_API_URL + process.env.VUE_APP_PREFIX + "newPost", post);
-      context.commit("ADD_POST", post);
+      return axios.post(process.env.VUE_APP_API_URL + process.env.VUE_APP_PREFIX + "newPost/", post).then((res) => {
+        context.commit("ADD_POST", post);
+      });
+      
     },
     updatePost(context, post) {},
-    deletePost(context, postID) {},
+    deletePost(context, postID) {
+      axios.delete(process.env.VUE_APP_API_URL + process.env.VUE_APP_PREFIX + "deletePost/" + postID).then((res) => {
+        context.commit("DELETE_POST", postID);
+      });
+    },
   },
   modules: {},
 });

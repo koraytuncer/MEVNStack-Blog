@@ -24,7 +24,6 @@ const postSchema = new Schema(
     },
     slug: {
       type: Schema.Types.String,
-      required: true,
     },
   },
   {

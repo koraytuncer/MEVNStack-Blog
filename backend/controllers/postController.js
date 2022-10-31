@@ -41,6 +41,7 @@ const deletePost = async (req, res) => {
   try {
     //await Post.findById({ _id: req.params.id });
     await Post.findByIdAndRemove(req.params.id);
+
     res.status(200).json({
       succeded: true,
       message: "Silme İşlemi Başarılı",
@@ -54,7 +55,7 @@ const deletePost = async (req, res) => {
 };
 const getAPost = async (req, res) => {
   try {
-    const post = await Post.findOne({ slug: req.params.slug}).populate("category")
+    const post = await Post.findOne({ slug: req.params.slug }).populate("category");
     res.status(200).json({
       succeded: true,
       post,
@@ -68,7 +69,7 @@ const getAPost = async (req, res) => {
 };
 const getAllPost = async (req, res) => {
   try {
-    const post = await Post.find({}).populate("category")
+    const post = await Post.find({}).populate("category");
     res.status(200).json({
       succeded: true,
       post,

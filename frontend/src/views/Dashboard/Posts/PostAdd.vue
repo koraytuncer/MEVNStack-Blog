@@ -92,24 +92,19 @@ export default {
 
     const categories = computed(() => store.getters.getCategories);
     onMounted(() => store.dispatch("initCategories"));
-    const post = computed(() => store.getters.getPost);
-    onMounted(() =>
-      store.dispatch("initPost", router.currentRoute.value.params.slug)
-    );
 
     let form = {
       title: "",
-      category: "",
+      category: {},
       description: "",
       author: "",
     };
 
-    // if (router.currentRoute.value.params.slug) {
-    //   return (post.value.title = form.title);
-    // }
-
     const onSubmit = async () => {
-      await store.dispatch("addPost", form);
+      await store.dispatch("addPost", form)
+      .then(()=>{
+        router.push({name:"dashboard"})
+      })
     };
 
     return {

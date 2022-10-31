@@ -42,8 +42,7 @@
                     <div class="d-flex">
                       <router-link 
                       class="me-2" 
-                      :to="`/postEdit/${post.slug}`"  
-                      :key="post.slug"
+                      :to="{ name: 'post-edit', params: { slug: post.slug } }" 
                       >
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit" width="24"
                           height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
@@ -54,7 +53,7 @@
                           <path d="M16 5l3 3"></path>
                         </svg>
                       </router-link>
-                      <router-link to="/delete">
+                      <router-link to=""  @click="deletePost(post._id)" >
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="24"
                           height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                           stroke-linecap="round" stroke-linejoin="round">
@@ -132,14 +131,16 @@ export default {
     const posts = computed(() => store.getters.getPosts);
     onMounted(() => store.dispatch("initPosts"));
 
-
+    const deletePost = (id)=>{
+        store.dispatch("deletePost",id)
+      }
 
 
     const dateTime = (value) => {
       return moment(value).format("DD/MM/YYYY");
     };
 
-    return { posts, dateTime };
+    return { posts, dateTime,deletePost };
   },
 };
 </script>
