@@ -65,7 +65,7 @@ const routes = [
         path: "/postEdit/:slug",
         name: "post-edit",
         props: true,
-        component: () => import("@/views/Dashboard/Posts/PostAdd.vue"),
+        component: () => import("@/views/Dashboard/Posts/PostUpdate.vue"),
       },
       {
         path: "/categoryLists",
