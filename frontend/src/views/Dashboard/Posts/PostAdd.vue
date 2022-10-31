@@ -10,7 +10,11 @@
       <div class="container-xl">
         <div class="row row-deck row-cards">
           <div class="col-12">
-            <PostForm :onSubmit="onSubmit" :form="form" />
+            <PostForm
+              :onSubmit="onSubmit"
+              :form="form"
+              :onChangeSection="onChangeSection"
+            />
           </div>
         </div>
       </div>
@@ -29,29 +33,31 @@ export default {
   components: {
     Header,
     Footer,
-    PostForm
+    PostForm,
   },
-  setup() {
+  setup(props) {
     const store = useStore();
     const router = useRouter();
 
     const form = reactive({
       title: "",
-      category: {},
+      category: "",
       description: "",
       author: "",
-    })
+    });
+
+    function onChangeSection(event) {
+      alert(event.target.value);
+    }
 
     const onSubmit = async () => {
-      await store.dispatch("addPost", form)
-      .then(()=>{
-        router.push({name:"dashboard"})
-      })
+      await store.dispatch("addPost", form);
     };
 
     return {
       form,
       onSubmit,
+      onChangeSection,
     };
   },
 };

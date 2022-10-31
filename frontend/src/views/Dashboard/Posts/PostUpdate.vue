@@ -41,15 +41,19 @@ export default {
       title: "",
       description: "",
       author: "",
-      category:{}
+      category:""
     });
 
 
-    async function getPost(){
+    const getPost = async ()=>{
       const {slug} = route.params
        const response = await fetch(process.env.VUE_APP_API_URL + process.env.VUE_APP_PREFIX + slug )
        const json = await response.json()
-       form.value = json.post
+      form.value = json.post
+      // form.value.title = json.post.title
+      // form.value.description = json.post.description
+      // form.value.author = json.post.author
+      form.value.category = json.post.category.title
     }
 
     return {

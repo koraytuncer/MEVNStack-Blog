@@ -14,10 +14,10 @@
 
         <div class="mb-3">
           <label class="form-label">Kategori</label>
-          <select v-model="form.category" name="category" class="form-select">
-            <option value="Lütfen Seçiniz" selected>Lütfen Seçiniz</option>
+          <select v-model="form.category" @change="onChangeSection($event)" name="category" class="form-select">
+            <option value="" disabled selected>Lütfen Seçiniz</option>
             <option v-for="(item, index) in categories" :key="index">
-              {{ item._id }}
+              {{ item.title }}
             </option>
           </select>
         </div>
@@ -57,15 +57,17 @@ export default {
   components: {
     QuillEditor,
   },
-  props: ["form", "onSubmit", "categories"],
+  props: ["form", "onSubmit","onChangeSection"],
   setup(){
     const store = useStore();
     
     const categories = computed(() => store.getters.getCategories);
     onMounted(() => store.dispatch("initCategories"));
 
+
+
     return{
-        categories
+        categories,
     }
   }
 };

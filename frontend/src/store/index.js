@@ -66,10 +66,11 @@ export default createStore({
       });
     },
     addPost(context, post) {
-      return axios.post(process.env.VUE_APP_API_URL + process.env.VUE_APP_PREFIX + "newPost/", post).then((res) => {
+      axios.post(process.env.VUE_APP_API_URL + process.env.VUE_APP_PREFIX + "newPost", post).then((res)=>{
+        console.log(res)
         context.commit("ADD_POST", post);
       });
-      
+     
     },
     updatePost(context, post) {},
     deletePost(context, postID) {
