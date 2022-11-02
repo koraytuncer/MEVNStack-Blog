@@ -1,4 +1,5 @@
 import Categories from "../models/categoriesModel.js";
+import slugify from "slugify";
 
 const createCategories = async (req, res) => {
   try {
@@ -18,8 +19,12 @@ const updateCategories = async (req, res) => {
   try {
     const category = await Categories.findById({ _id: req.params.id });
 
-    category.title = req.body.title;
-    category.color = req.body.color;
+    category.title = req.body._value.title;
+    category.color = req.body._value.color;
+    slugify(req.body._value.title, {
+      lower: true,
+      strict: true,
+    })
     category.save();
 
     res.status(200).json({
@@ -52,7 +57,7 @@ const deleteCategories = async (req, res) => {
 };
 const getACategories = async (req, res) => {
   try {
-    const category = await Categories.findOne({ slug: req.params.slug });
+    const category = await Categories.findById({ _id: req.params.id });
     res.status(200).json({
       succeded: true,
       category,

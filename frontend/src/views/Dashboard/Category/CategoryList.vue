@@ -40,7 +40,8 @@
                   <td>{{ dateTime(category.updatedAt) }}</td>
                   <td>
                     <div class="d-flex">
-                      <router-link class="me-2" to="/edit">
+                      <router-link class="me-2" 
+                      :to="{ name: 'category-edit', params: { id: category._id } }" >
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit" width="24"
                           height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                           stroke-linecap="round" stroke-linejoin="round">
@@ -50,7 +51,7 @@
                           <path d="M16 5l3 3"></path>
                         </svg>
                       </router-link>
-                      <router-link to="/delete">
+                      <router-link to="" @click="deleteCategory(category._id)">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="24"
                           height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                           stroke-linecap="round" stroke-linejoin="round">
@@ -132,11 +133,14 @@ export default {
 
     onMounted(() => store.dispatch("initCategories"));
 
-    console.log(categories);
+    const deleteCategory = (id)=>{
+        store.dispatch("deleteCategory",id)
+      }
 
     return {
       categories,
       dateTime,
+      deleteCategory
     };
   },
 };

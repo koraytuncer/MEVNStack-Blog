@@ -49,6 +49,10 @@ export default createStore({
       let index = state.posts.findIndex((c) => c._id == postID);
       state.posts.splice(index, 1);
     },
+    DELETE_CATEGORY(state, categoryID) {
+      let index = state.categories.findIndex((c) => c._id == categoryID);
+      state.categories.splice(index, 1);
+    },
   },
   actions: {
     initPosts(context) {
@@ -87,6 +91,14 @@ export default createStore({
 
     addCategory(context, category) {
       axios.post(process.env.VUE_APP_API_URL + process.env.VUE_APP_PREFIX + "newCategories", category)
+    },
+    updateCategory(context, category) {
+      axios.put(process.env.VUE_APP_API_URL + process.env.VUE_APP_PREFIX + "updateCategory/" + category.value._id, { ...category }).then((res) => {});
+    },
+    deleteCategory(context, categoryID) {
+      axios.delete(process.env.VUE_APP_API_URL + process.env.VUE_APP_PREFIX + "deleteCategory/" + categoryID).then((res) => {
+        context.commit("DELETE_CATEGORY", categoryID);
+      });
     },
   },
   modules: {},

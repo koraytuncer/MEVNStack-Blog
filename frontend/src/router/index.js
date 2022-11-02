@@ -78,6 +78,12 @@ const routes = [
         name: "newCategory",
         component: () => import("@/views/Dashboard/Category/CategoryAdd.vue"),
       },
+      {
+        path: "/categoryEdit/:id",
+        name: "category-edit",
+        props: true,
+        component: () => import("@/views/Dashboard/Category/CategoryUpdate.vue"),
+      },
     ],
   },
   {

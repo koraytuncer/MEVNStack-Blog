@@ -85,7 +85,7 @@ export default {
 
       await store.dispatch("updatePost", post);
 
-      router.push({ name: "dashboard" });
+      router.push({ name: "postList" });
     };
 
     return {

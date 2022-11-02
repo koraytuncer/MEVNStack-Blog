@@ -75,7 +75,7 @@ const getAPost = async (req, res) => {
 };
 const getAllPost = async (req, res) => {
   try {
-    const post = await Post.find({}).populate("category");
+    const post = await Post.find({}).sort({createdAt:1}).populate("category")
     res.status(200).json({
       succeded: true,
       post,
