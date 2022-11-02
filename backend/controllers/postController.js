@@ -1,4 +1,5 @@
 import Post from "../models/postModel.js";
+import slugify from "slugify";
 
 const createPost = async (req, res) => {
   try {
@@ -18,11 +19,16 @@ const updatePost = async (req, res) => {
   try {
     const post = await Post.findOne({ _id: req.params.id });
 
-    post.title = req.body.title;
-    post.description = req.body.description;
-    post.categories = req.body.categories;
-    post.author = req.body.author;
+    post.title = req.body._value.title;
+    post.description = req.body._value.description;
+    post.category = req.body._value.category;
+    post.author = req.body._value.author;
+    slugify(req.body._value.title, {
+        lower: true,
+        strict: true,
+      })
     post.save();
+
 
     res.status(200).json({
       succeded: true,

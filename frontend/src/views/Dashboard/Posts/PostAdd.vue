@@ -12,7 +12,7 @@
           <div class="col-12">
             <PostForm
               :onSubmit="onSubmit"
-              :form="form"
+              :post="post"
               :onChangeSection="onChangeSection"
             />
           </div>
@@ -26,7 +26,7 @@
 import Header from "@/views/Dashboard/Header";
 import Footer from "@/views/Dashboard/Footer";
 import PostForm from "@/views/Dashboard/Posts/PostForm";
-import { reactive } from "vue";
+import { reactive, ref, computed } from "vue";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
 export default {
@@ -38,24 +38,34 @@ export default {
   setup(props) {
     const store = useStore();
     const router = useRouter();
+    const resultCat = ref();
 
-    const form = reactive({
+    function onChangeSection(event) {
+      const categories = computed(() => store.getters.getCategories);
+      resultCat.value = categories.value.filter((c) => c.title == event.target.value);
+    }
+
+
+    const post = reactive({
       title: "",
-      category: "",
+      category:  "",
       description: "",
       author: "",
     });
 
-    function onChangeSection(event) {
-      alert(event.target.value);
-    }
+
 
     const onSubmit = async () => {
-      await store.dispatch("addPost", form);
+      post.category = resultCat.value[0]._id
+      await store.dispatch("addPost", post);
+      
+      router.push({ name: 'dashboard'})
+      
     };
 
+
     return {
-      form,
+      post,
       onSubmit,
       onChangeSection,
     };

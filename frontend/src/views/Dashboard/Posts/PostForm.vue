@@ -5,7 +5,7 @@
         <div class="mb-3">
           <label class="form-label">Başlık</label>
           <input
-            v-model="form.title"
+            v-model="post.title"
             type="text"
             class="form-control"
             placeholder="Yazı Başlığı"
@@ -14,7 +14,7 @@
 
         <div class="mb-3">
           <label class="form-label">Kategori</label>
-          <select v-model="form.category" @change="onChangeSection($event)" name="category" class="form-select">
+          <select v-model="post.category" @change="onChangeSection($event)" name="category" class="form-select">
             <option value="" disabled selected>Lütfen Seçiniz</option>
             <option v-for="(item, index) in categories" :key="index">
               {{ item.title }}
@@ -26,7 +26,7 @@
           <input
             type="text"
             name="author"
-            v-model="form.author"
+            v-model="post.author"
             class="form-control"
             placeholder="Yazar Adı"
           />
@@ -34,7 +34,7 @@
         <div class="mb-3">
           <label class="form-label">Yazı Alanı</label>
           <QuillEditor
-            v-model:content="form.description"
+            v-model:content="post.description"
             contentType="html"
             theme="snow"
           ></QuillEditor>
@@ -57,13 +57,12 @@ export default {
   components: {
     QuillEditor,
   },
-  props: ["form", "onSubmit","onChangeSection"],
+  props: ["post", "onSubmit","onChangeSection"],
   setup(){
     const store = useStore();
     
     const categories = computed(() => store.getters.getCategories);
     onMounted(() => store.dispatch("initCategories"));
-
 
 
     return{

@@ -3,7 +3,6 @@ import Categories from "../models/categoriesModel.js";
 const createCategories = async (req, res) => {
   try {
     const category = await Categories.create(req.body);
-    console.log(req.body)
     res.status(201).json({
       succeded: true,
       category,

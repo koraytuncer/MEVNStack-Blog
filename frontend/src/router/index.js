@@ -52,6 +52,7 @@ const routes = [
       {
         path: "/postList",
         name: "postList",
+        slug:"postList",
         props: true,
         component: () => import("@/views/Dashboard/Posts/PostList.vue"),
       },
