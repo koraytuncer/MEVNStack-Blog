@@ -6,7 +6,7 @@
           <h2>
             <router-link :to="{ name: 'articleDetail', params: { id: post._id, slug: post.slug } }" :title="post.title">{{ post.title }} </router-link>
           </h2>
-          <div :style="{ color: '#' + post.category.color }">
+          <div :style="{ color: post.category.color }">
             <i class="fa-solid fa-star"></i>
             {{ post.category.title }}
           </div>

@@ -6,7 +6,7 @@
           <article class="articles">
             <div class="articles-header">
               <time>{{ dateTime(post.updatedAt) }}</time>
-              <span class="articles-header-category" v-if="post.length != 0" :style="{ color: '#' + post.category.color }">
+              <span class="articles-header-category" v-if="post.length != 0" :style="{ color: post.category.color }">
                 <i class="fa-solid fa-star"></i>
                 {{ post.category.title }} </span>
             </div>
