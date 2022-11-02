@@ -108,12 +108,10 @@
         </div>
       </div>
     </div>
-    <Footer />
   </div>
 </template>
 <script>
 import Header from "@/views/Dashboard/Header";
-import Footer from "@/views/Dashboard/Footer";
 import { onMounted, computed } from "vue";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
@@ -122,7 +120,6 @@ import moment from "moment";
 export default {
   components: {
     Header,
-    Footer,
   },
   setup() {
     const store = useStore();

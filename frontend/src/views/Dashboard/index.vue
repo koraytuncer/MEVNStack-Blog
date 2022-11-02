@@ -1,6 +1,5 @@
 <template>
   <div class="page-wrapper">
-    <Header title="K91 - MevnStack Blog Uygulaması" button="Yazı Oluştur" toLink="newPost" buttonShow="false" />
     <div class="page-body">
       <div class="container-xl">
         <div class="row row-deck row-cards">
@@ -144,7 +143,10 @@
           </div>
 
           <div class="col-12">
-sss
+            <PostList />
+          </div>
+          <div class="col-12">
+            <CategoryList />
           </div>
         </div>
       </div>
@@ -155,13 +157,16 @@ sss
 
 <script>
 import Footer from "@/views/Dashboard/Footer";
-import Header from "@/views/Dashboard/Header";
+import PostList from "@/views/Dashboard/Posts/PostList.vue";
+import CategoryList from "@/views/Dashboard/Category/CategoryList.vue";
+
 
 export default {
   name: "Dashboard-Home",
   components: {
     Footer,
-    Header,
+    PostList,
+    CategoryList
   },
 };
 </script>

@@ -108,19 +108,16 @@
         </div>
       </div>
     </div>
-    <Footer />
   </div>
 </template>
 <script>
 import Header from "@/views/Dashboard/Header";
-import Footer from "@/views/Dashboard/Footer";
 import { onMounted, computed, ref } from "vue";
 import moment from "moment";
 import { useStore } from "vuex";
 export default {
   components: {
     Header,
-    Footer,
   },
   setup() {
     const store = useStore();
