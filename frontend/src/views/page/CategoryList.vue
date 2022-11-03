@@ -35,7 +35,7 @@
                 </div>
               </div>
             </article>
-            <Navigasyon />
+            <!-- <Navigasyon /> -->
           </section>
         </div>
         <Aside />
@@ -45,7 +45,7 @@
 </template>
 
 <script>
-import Navigasyon from "@/components/Navigasyon.vue";
+// import Navigasyon from "@/components/Navigasyon.vue";
 import Aside from "@/views/components/Aside.vue";
 import { onMounted, computed, ref, watch } from "vue";
 import { useStore } from "vuex";
@@ -53,7 +53,7 @@ import { useRoute } from "vue-router";
 import moment from "moment";
 export default {
   name: "Main",
-  components: { Navigasyon, Aside },
+  components: {  Aside },
   setup() {
     const store = useStore();
     const route = useRoute();

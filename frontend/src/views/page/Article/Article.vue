@@ -27,7 +27,7 @@
         </ul>
       </div>
     </article>
-    <Navigasyon />
+    <!-- <Navigasyon /> -->
   </section>
   <div v-else>
     <div class="alert alert-warning" role="alert">
@@ -38,13 +38,13 @@
 </template>
 
 <script>
-import Navigasyon from "@/components/Navigasyon.vue";
+// import Navigasyon from "@/components/Navigasyon.vue";
 import { onMounted, computed } from "vue";
 import { useStore } from "vuex";
 import moment from "moment";
 export default {
   name: "Main",
-  components: { Navigasyon },
+  // components: { Navigasyon },
   setup() {
     const store = useStore();
     const posts = computed(() => store.getters.getPosts);
