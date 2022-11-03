@@ -41,6 +41,7 @@ import Footer from "@/views/Dashboard/Footer";
 import { reactive } from "vue";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
+import { useToast } from "vue-toastification";
 export default {
   components: {
     Header,
@@ -49,6 +50,7 @@ export default {
   setup(){
     const store = useStore();
     const router = useRouter();
+    const toast = useToast();
 
     const category = reactive({
       title: "",
@@ -57,6 +59,8 @@ export default {
 
     const onSubmit = async () => {
       await store.dispatch("addCategory", category);
+      toast.success("Ekleme İşlemi Başarılı");
+      router.push({ name: "categoryLists" });
       
     };
 

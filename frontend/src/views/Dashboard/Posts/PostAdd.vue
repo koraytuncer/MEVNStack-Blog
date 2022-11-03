@@ -29,6 +29,7 @@ import PostForm from "@/views/Dashboard/Posts/PostForm";
 import { reactive, ref, computed } from "vue";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
+import { useToast } from "vue-toastification";
 export default {
   components: {
     Header,
@@ -39,30 +40,26 @@ export default {
     const store = useStore();
     const router = useRouter();
     const resultCat = ref();
+    const toast = useToast();
 
     function onChangeSection(event) {
       const categories = computed(() => store.getters.getCategories);
       resultCat.value = categories.value.filter((c) => c.title == event.target.value);
     }
 
-
     const post = reactive({
       title: "",
-      category:  "",
+      category: "",
       description: "",
       author: "",
     });
 
-
-
     const onSubmit = async () => {
-      post.category = resultCat.value[0]._id
+      post.category = resultCat.value[0]._id;
       await store.dispatch("addPost", post);
-      
-      router.push({ name: 'dashboard'})
-      
+      toast.success("Güncelleme İşlemi Başarılı");
+      router.push({ name: "dashboard" });
     };
-
 
     return {
       post,

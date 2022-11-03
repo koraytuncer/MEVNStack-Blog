@@ -58,9 +58,6 @@
             <router-link to="/about" title="Hakkımda">Hakkımda</router-link>
           </li>
           <li :class="{ active: selected === 3 }" @click="changeSelected(3)">
-            <router-link to="/project" title="Projelerim">Projelerim</router-link>
-          </li>
-          <li :class="{ active: selected === 4 }" @click="changeSelected(4)">
             <router-link to="/contact" title="İletişim">İletişim</router-link>
           </li>
         </ul>

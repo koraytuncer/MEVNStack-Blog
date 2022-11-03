@@ -29,6 +29,7 @@ import PostForm from "@/views/Dashboard/Posts/PostForm";
 import { onMounted, computed, ref } from "vue";
 import { useStore } from "vuex";
 import { useRoute, useRouter } from "vue-router";
+import { useToast } from "vue-toastification";
 export default {
   components: {
     Header,
@@ -40,6 +41,7 @@ export default {
     const route = useRoute();
     const router = useRouter();
     const resultCat = ref();
+    const toast = useToast();
 
     onMounted(() => {
       getPost();
@@ -84,8 +86,8 @@ export default {
       }
 
       await store.dispatch("updatePost", post);
-
-      router.push({ name: "postList" });
+      router.push({ name: "dashboard" });
+      toast.success("Ekleme İşlemi Başarılı");
     };
 
     return {

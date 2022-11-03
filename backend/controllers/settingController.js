@@ -1,6 +1,7 @@
 import Setting from "../models/settingModel.js";
 
 const createSetting = async (req, res) => {
+  console.log(req)
   try {
     const setting = await Setting.create(req.body);
     res.status(201).json({

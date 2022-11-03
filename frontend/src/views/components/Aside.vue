@@ -12,7 +12,7 @@
       </div>
       <ul class="author-nav">
         <li>
-          <a class="d-flex align-items-center" href="#" title=""><i class="fa-solid fa-lightbulb"></i>Proje fikrim var !</a>
+          <router-link class="d-flex align-items-center" to="/contact" title=""><i class="fa-solid fa-lightbulb"></i>Proje fikrim var !</router-link>
         </li>
       </ul>
     </section>

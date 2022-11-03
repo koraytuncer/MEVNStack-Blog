@@ -88,7 +88,6 @@ export default createStore({
         context.commit("DELETE_POST", postID);
       });
     },
-
     addCategory(context, category) {
       axios.post(process.env.VUE_APP_API_URL + process.env.VUE_APP_PREFIX + "newCategories", category)
     },

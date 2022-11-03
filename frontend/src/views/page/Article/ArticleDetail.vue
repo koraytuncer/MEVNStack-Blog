@@ -2,7 +2,7 @@
   <div class="container">
     <div class="articles-blog-post">
       <div class="row">
-        <div class="col-xs-12 col-lg-10">
+        <div class="col-xs-12 col-lg-12">
           <article class="articles">
             <div class="articles-header">
               <time>{{ dateTime(post.updatedAt) }}</time>
@@ -22,22 +22,6 @@
             </div>
           </article>
         </div>
-        <div class="col-xs-12 col-lg-2">
-          <div class="side-section">
-            <h3 class="side-section-title">Share this</h3>
-            <ul>
-              <li>
-                <a class="text-13px" href="#" title="Facebook"> <i class="fab fa-facebook-f w-3 mr-2.5"></i>Facebook </a>
-              </li>
-              <li>
-                <a class="text-13px" href="#" title="Twitter"> <i class="fab fa-twitter w-3 mr-2.5"></i>Twitter </a>
-              </li>
-              <li>
-                <a class="text-13px" href="#" title="Google+"> <i class="fab fa-google-plus-g w-3 mr-2.5"></i>Google+ </a>
-              </li>
-            </ul>
-          </div>
-        </div>
       </div>
     </div>
     <section class="blog-post-bottom-section">
@@ -50,54 +34,13 @@
                 <h4 class="">{{post.author}}</h4>
                 <div class="author-social d-flex align-items-center">
                   <a href="#" class="social-icon" title="Twitter"><i class="fab fa-twitter"></i></a>
-                  <a href="#" class="social-icon" title="Github"><i class="fab fa-git"></i></a>
-                  <a href="#" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                  <a href="https://github.com/koraytuncer" class="social-icon" title="Github"><i class="fab fa-git"></i></a>
+                  <a href="https://linkedin.com/koraytuncer" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                 </div>
               </div>
               <p class="font-primary articles-author-content-text">
-                Compassionate entrepreneur on a mission to end homelessness. #jshomes Javascript, tech education, electronic music, photography, film, viral
-                apps.
+                Yinelenen bir sayfa içeriğinin okuyucunun dikkatini dağıttığı bilinen bir gerçektir. Lorem Ipsum kullanmanın amacı, sürekli 'buraya metin gelecek, buraya metin gelecek' yazmaya kıyasla daha dengeli bir harf dağılımı sağlayarak okunurluğu artırmasıdır.
               </p>
-            </div>
-          </div>
-        </div>
-        <div class="last-read">
-          <h2 class="blog-post-bottom-section-title">Last Reads</h2>
-          <div class="article-banner">
-            <div class="row">
-              <div class="col-xs-12 col-md-6 col-lg-4">
-                <div class="article-banner-wrapper">
-                  <a class="group" href="#" title="Angular 2 versus React: There Will Be Blood">
-                    <div class="article-banner-content">
-                      <h2>Angular 2 versus React: There Will Be Blood</h2>
-                      <span class="category-tag category-tag-yellow">Javascript</span>
-                      <time datetime="2022-03-01" class="article-banner-time">March 1, 2022</time>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div class="col-xs-12 col-md-6 col-lg-4">
-                <div class="article-banner-wrapper">
-                  <a class="group" href="#" title="The End of Global CSS">
-                    <div class="article-banner-content">
-                      <h2>The End of Global CSS</h2>
-                      <span class="category-tag category-tag-green">Graphic</span>
-                      <time datetime="2022-03-01" class="article-banner-time">March 13, 2022</time>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div class="col-xs-12 col-md-6 col-lg-4">
-                <div class="article-banner-wrapper">
-                  <a class="group" href="#" title="Building an CSS Framework">
-                    <div class="article-banner-content">
-                      <h2>Building an CSS Framework</h2>
-                      <span class="category-tag category-tag-blue">CSS</span>
-                      <time datetime="2022-03-01" class="article-banner-time">March 24, 2022</time>
-                    </div>
-                  </a>
-                </div>
-              </div>
             </div>
           </div>
         </div>

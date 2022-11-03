@@ -116,7 +116,7 @@ import { onMounted, computed } from "vue";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
 import moment from "moment";
-
+import { useToast } from "vue-toastification";
 export default {
   components: {
     Header,
@@ -124,12 +124,14 @@ export default {
   setup() {
     const store = useStore();
     const router = useRouter();
+    const toast = useToast();
     
     const posts = computed(() => store.getters.getPosts);
     onMounted(() => store.dispatch("initPosts"));
 
     const deletePost = (id)=>{
         store.dispatch("deletePost",id)
+        toast.success("Silme İşlemi Başarılı");
       }
 
 

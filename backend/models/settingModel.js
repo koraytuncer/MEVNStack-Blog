@@ -13,7 +13,7 @@ const settingSchema = new Schema(
       required: true,
     },
     socialMedia: {
-      type: Schema.Types.Array,
+      type: Schema.Types.String,
     },
   },
   {

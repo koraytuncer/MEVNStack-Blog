@@ -10,15 +10,15 @@
             </div>
 
             <div class="articles-content px-8">
-              <form>
+              <form @submit.prevent="onSubmit">
                 <div class="mb-3">
-                  <input type="text" class="k91Contact" placeholder="Ad Soyad"/>
+                  <input type="text" v-model="contactForm.name" class="k91Contact" placeholder="Ad Soyad" required/>
                 </div>
                 <div class="mb-3">
-                  <input type="email" class="k91Contact" placeholder="Email"/>
+                  <input type="email" v-model="contactForm.email" class="k91Contact" placeholder="Email" required/>
                 </div>
                 <div class="mb-3">
-                  <textarea class="k91Contact" placeholder="Mesajınız" />
+                  <textarea v-model="contactForm.message" class="k91Contact" placeholder="Mesajınız" />
                 </div>
 
                 <button type="submit" class="btn btn-primary">Gönder</button>
@@ -31,8 +31,31 @@
   </div>
 </template>
 <script>
+import { ref } from "vue";
+import { useToast } from "vue-toastification";
 export default {
-  name: "About",
+  name: "Contact",
+  setup(){
+
+    const toast = useToast();
+
+    const contactForm = ref({
+      name: "",
+      email: "",
+      message: "",
+    });
+
+    const onSubmit = ()=>{
+  
+      contactForm.value = ""
+
+      toast.success("E-Posta Gönderimi Başarılı");
+    }
+
+    return{
+      onSubmit,contactForm
+    }
+  }
 };
 </script>
 

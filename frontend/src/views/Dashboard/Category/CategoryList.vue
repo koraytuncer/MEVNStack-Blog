@@ -115,12 +115,14 @@ import Header from "@/views/Dashboard/Header";
 import { onMounted, computed, ref } from "vue";
 import moment from "moment";
 import { useStore } from "vuex";
+import { useToast } from "vue-toastification";
 export default {
   components: {
     Header,
   },
   setup() {
     const store = useStore();
+    const toast = useToast();
     const categories = computed(() => store.getters.getCategories);
 
 
@@ -132,6 +134,7 @@ export default {
 
     const deleteCategory = (id)=>{
         store.dispatch("deleteCategory",id)
+        toast.success("Silme İşlemi Başarılı");
       }
 
     return {

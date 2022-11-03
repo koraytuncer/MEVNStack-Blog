@@ -37,7 +37,6 @@ app.use(`${process.env.APP_PREFIX}`, router.pageRoute);
 app.use(`${process.env.APP_PREFIX}`, router.categoriesRoute);
 app.use(`${process.env.APP_PREFIX}`, router.userRoute);
 app.use(`${process.env.APP_PREFIX}`, router.postRoute);
-app.use(`${process.env.APP_PREFIX}`, router.searchRoute);
 
 
 const port = process.env.APP_PORT || 5000;

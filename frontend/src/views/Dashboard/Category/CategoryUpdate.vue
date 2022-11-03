@@ -43,6 +43,7 @@ import '@vueup/vue-quill/dist/vue-quill.snow.css';
 import { ref,onMounted } from "vue";
 import { useStore } from "vuex";
 import { useRoute,useRouter } from "vue-router";
+import { useToast } from "vue-toastification";
 export default {
   components: {
     Header,
@@ -53,6 +54,7 @@ export default {
     const store = useStore();
     const route = useRoute();
     const router = useRouter();
+    const toast = useToast();
 
 
     onMounted(() => {
@@ -77,7 +79,7 @@ export default {
     const onSubmit = async () => {
       console.log(category)
       await store.dispatch("updateCategory", category);
-
+      toast.success("Güncelleme İşlemi Başarılı");
       router.push({ name: "categoryLists" });
       
     };
