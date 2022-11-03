@@ -10,7 +10,7 @@
                 <form method="post" @submit.prevent="onSubmit">
                 <div class="mb-3">
                   <label class="form-label">Başlık</label>
-                  <input type="text" v-model="category.title" class="form-control" placeholder="Kategori Adı">
+                  <input type="text" v-model="category.title" class="form-control" placeholder="Kategori Adı" required>
                 </div>
                 <div class="mb-3">
                   <label class="form-label">Kategori Renk</label>

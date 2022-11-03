@@ -9,6 +9,7 @@
             type="text"
             class="form-control"
             placeholder="Yazı Başlığı"
+            required
           />
         </div>
 
@@ -34,6 +35,7 @@
             v-model="post.author"
             class="form-control"
             placeholder="Yazar Adı"
+            required
           />
         </div>
         <div class="mb-3">
