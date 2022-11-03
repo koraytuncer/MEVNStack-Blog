@@ -4,9 +4,6 @@ const { Schema } = mongoose;
 
 const settingSchema = new Schema(
   {
-    avatar: {
-      type: Schema.Types.String,
-    },
     name: {
       type: Schema.Types.String,
       required: true,

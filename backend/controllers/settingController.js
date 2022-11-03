@@ -37,21 +37,6 @@ const updateSetting = async (req, res) => {
     console.log(error);
   }
 };
-const deleteSetting = async (req, res) => {
-  try {
-    //await Post.findById({ _id: req.params.id });
-    await Setting.findByIdAndRemove(req.params.id);
-    res.status(200).json({
-      succeded: true,
-      message: "Silme İşlemi Başarılı",
-    });
-  } catch (error) {
-    res.status(500).json({
-      succeded: false,
-      error,
-    });
-  }
-};
 const getASetting = async (req, res) => {
   try {
     const setting = await Setting.findById({ _id: req.params.id });
@@ -68,4 +53,4 @@ const getASetting = async (req, res) => {
 };
 
 
-export { createSetting, getASetting, updateSetting, deleteSetting };
+export { createSetting, getASetting, updateSetting };

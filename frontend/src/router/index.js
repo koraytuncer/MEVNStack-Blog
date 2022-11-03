@@ -84,6 +84,12 @@ const routes = [
         props: true,
         component: () => import("@/views/Dashboard/Category/CategoryUpdate.vue"),
       },
+      {
+        path: "/settings",
+        name: "settings",
+        props: true,
+        component: () => import("@/views/Dashboard/Settings"),
+      },
     ],
   },
   {
